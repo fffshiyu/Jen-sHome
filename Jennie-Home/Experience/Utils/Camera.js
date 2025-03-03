@@ -17,10 +17,11 @@ export default class Camera{
             1000
         )
         this.scene.add(this.perspectiveCamera)
+        this.perspectiveCamera.position.z = 5
     }
     createOrtherographicCamera(){
         this.frustrum = 5
-        this.ortherographicCamera =new THREE.ortherographicCamera(
+        this.ortherographicCamera =new THREE.OrthographicCamera(
           (-this.sizes.aspect*this.sizes.frustrum)/2,
           (this.sizes.aspect*this.sizes.frustrum)/2,
             this.sizes.frustrum/2,
@@ -39,6 +40,9 @@ export default class Camera{
         this.ortherographicCamera.top=  this.sizes.frustrum/2,
         this.ortherographicCamera.bottom  =-this.sizes.frustrum/2,
         this.ortherographicCamera.updateProjectionMatrix()
+
+    }
+    update(){
 
     }
 }
